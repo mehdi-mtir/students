@@ -1,1 +1,26 @@
-<p>edit-student works!</p>
+<h2>Editer un étudiant</h2>
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" class="form-control" formControlName="name"  >
+        <div *ngIf="studentForm.controls.name.invalid && studentForm.controls.name.touched" class="alert alert-danger" role="alert">
+            Champ obligatoire
+          </div>
+    </div>
+    <div class="form-group">
+        <label for="firstname">Prénom</label>
+        <input type="text" id="firstname" name="firstname" class="form-control" formControlName="firstname">
+    </div>
+    <div class="form-group">
+        <label for="class">Classe</label>
+        <select type="text" id="class" name="class" class="form-control" formControlName="class">
+            <option value="">Veuillez sélectionner votre classe</option>
+            <option value="L2DSI1">L2DSI1</option>
+            <option value="L2DSI2">L2DSI2</option>
+            <option value="L2DSI3">L2DSI3</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" value="Valider" [disabled]="studentForm.invalid">
+    </div>
+</form>

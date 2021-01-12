@@ -38,14 +38,18 @@ export class StudentService {
     return this.currentStudent;
   }
 
+  getStudent(indice : number){
+    return this.students[indice];
+  }
+
   addStudent(s : Student){
     this.students.push(s);
     this.saveStudents();
     this.changeAction(""); 
   }
 
-  editStudent(s : Student){
-    this.students[this.currentIndex] = s;
+  editStudent(s : Student, indice : number){
+    this.students[indice] = s;
     this.saveStudents();
     this.changeAction("");
   }

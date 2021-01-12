@@ -12,6 +12,10 @@ export class ListStudentsComponent implements OnInit {
 
   constructor(private serviceStudent : StudentService) { }
 
+  deleteStudent(indice : number){
+    this.serviceStudent.deleteStudent(indice);
+  }
+
   ngOnInit() {
     this.students = this.serviceStudent.getStudents();
   }
